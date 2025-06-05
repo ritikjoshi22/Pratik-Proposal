@@ -1,0 +1,62 @@
+<!-- create a page that asks my gf will you be my girlfriend and there will be two option: yes and no but she cannot click to no when ever she try to hover over or click over the no button it escapes and go to another location in the webpage and when she clicks yes write a cute message for her -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Girlfriend?</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            color: #ff69b4;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        #noButton {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <h1>Will You Be My Girlfriend?</h1>
+    <button id="yesButton">Yes</button>
+    <button id="noButton">No</button>
+
+    <script>
+        const noButton = document.getElementById('noButton');
+        const yesButton = document.getElementById('yesButton');
+
+        // Move the "No" button to a random position when hovered or clicked
+        noButton.addEventListener('mouseover', moveNoButton);
+        noButton.addEventListener('click', moveNoButton);
+
+        function moveNoButton() {
+            const x = Math.random() * (window.innerWidth - 100);
+            const y = Math.random() * (window.innerHeight - 50);
+            noButton.style.left = `${x}px`;
+            noButton.style.top = `${y}px`;
+        }
+
+        // Show a cute message when "Yes" is clicked
+        yesButton.addEventListener('click', () => {
+            alert("Yay! I'm so happy! 💖 You're the best!");
+        });
+    </script>
+</body>
+</html>
+<!-- This code creates a fun interactive proposal page where the user can ask their girlfriend to be their girlfriend. The "No" button evades clicks, while the "Yes" button displays a cute message. -->
